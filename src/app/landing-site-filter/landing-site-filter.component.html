@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Filter options</div>
+    <div class="panel-body">
+
+        <form>
+            <div class="form-group z-index-name-priority">
+                <label for="nameInput">Name <sup><a href="http://meteoriticalsociety.org/?page_id=59" target="_blank">Learn More</a></sup></label>
+                <input ng2-auto-complete [(ngModel)]="filterInfo.name" name="name" type="text" class="form-control" id="nameInput" placeholder="Name"
+                    (input)="filterChange()" [source]="namesSearchSource" [min-chars]=1 [max-num-list]=5>
+            </div>
+
+            <div class="form-group z-index-class-priority">
+                <label for="classInput">Class <sup><a href="https://en.wikipedia.org/wiki/Meteorite_classification" target="_blank">Learn More</a></sup></label>
+                <input ng2-auto-complete [(ngModel)]="filterInfo.classification" name="class" type="text" class="form-control" id="classInput"
+                    placeholder="Class" (input)="filterChange()" [source]="classSearchSource" [min-chars]=1 [max-num-list]=5>
+            </div>
+
+            <div class="form-group">
+                <label for="yearInput">Year</label>
+                <nouislider [(ngModel)]="filterInfo.yearRange" name="yearRange" id="yearInput" [config]="yearSliderConfig " style="margin-top: 3em; margin-left: 1em; margin-right: 1em; margin-bottom:
+                    3em;" (change)="filterChange()"></nouislider>
+            </div>
+
+            <div class=" form-group ">
+                <label for="massInput ">Mass (g)</label>
+                <nouislider [(ngModel)]="filterInfo.massRange " name="massRange " id="massInput " [config]="massSliderConfig
+                    " style="margin-top: 3em; margin-left: 1em; margin-right: 1em; margin-bottom: 3em; " (change)="filterChange()"></nouislider>
+            </div>
+        </form>
+    </div>
+</div>

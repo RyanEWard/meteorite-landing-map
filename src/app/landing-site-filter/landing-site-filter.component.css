@@ -1,0 +1,9 @@
+.z-index-name-priority {
+  position: relative;
+  z-index: 10;
+}
+
+.z-index-class-priority {
+  position: relative;
+  z-index: 9;
+}

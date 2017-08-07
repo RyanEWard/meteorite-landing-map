@@ -1,0 +1,21 @@
+<title-bar></title-bar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-md-push-3 col-xs-12">
+      <landing-site-map [filteredLandingSites]="filteredLandingSites" [selectedLandingSite]="selectedLandingSite"></landing-site-map>
+    </div>
+
+    <div class="col-md-3 col-md-pull-9 col-xs-12">
+      <landing-site-filter [filterInfo]="filterInfo" [massSliderConfig]="massSliderConfig" [yearSliderConfig]="yearSliderConfig"
+        (onFilterChange)="updateFilter()" [namesSearchSource]="namesSearchSource" [classSearchSource]="classSearchSource"></landing-site-filter>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <landing-site-list [filteredLandingSites]="filteredLandingSites" [landingSiteCountUnfiltered]="landingSiteCountUnfiltered"
+        [selectedLandingSite]="selectedLandingSite" (onSelectLandingSite)="changeSelectedLandingSite($event)"></landing-site-list>
+    </div>
+  </div>
+</div>

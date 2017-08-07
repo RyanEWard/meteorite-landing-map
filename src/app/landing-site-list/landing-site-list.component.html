@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Meteorite landing sites.
+        <span *ngIf="filteredLandingSites">
+            {{filteredLandingSites.length}} total<span *ngIf="landingSiteCountUnfiltered - filteredLandingSites.length != 0"> ({{landingSiteCountUnfiltered - filteredLandingSites.length}} filtered)</span>.
+        <span *ngIf="selectedLandingSite && selectedLandingSite.name">Landing site "{{selectedLandingSite.name}}" selected.</span>
+        </span>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <th> Name</th>
+                <th> Class</th>
+                <th> Year</th>
+                <th> Mass(g)</th>
+                <th> Coordinate</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ls of filteredLandingSites" (click)="onSelect(ls)" [ngClass]="{'info': selectedLandingSite == ls}">
+                    <td>{{ls.name}}</td>
+                    <td>{{ls.recclass}}</td>
+                    <td>{{ls.year | date:'y' }}</td>
+                    <td>{{ls.mass}}</td>
+                    <td *ngIf="ls.geolocation">({{ls.geolocation.coordinates[1]}}°, {{ls.geolocation.coordinates[0]}}°)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
